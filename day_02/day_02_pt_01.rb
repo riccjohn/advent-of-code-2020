@@ -1,4 +1,4 @@
-file = File.open('day_02/day_02_pt_01_input.txt')
+file = File.open('day_02/day_02_input.txt')
 file_data = file.read.split("\n")
 file.close
 
