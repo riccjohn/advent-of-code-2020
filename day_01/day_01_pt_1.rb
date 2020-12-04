@@ -1,6 +1,4 @@
-file = File.open('input.txt')
-file_data = file.read.split("\n")
-file.close
+file_data = File.readlines('input.txt')
 
 data_array = file_data.map {|n| n.to_i }
 
@@ -17,7 +15,7 @@ end
 
 sum_pair = two_sum(data_array, 2020)
 
-product = sum_pair.inject(1, :*)
+product = sum_pair.reduce(:*)
 pp product
 
 # 403 + 1617
