@@ -1,4 +1,6 @@
-file_data = File.readlines('input.txt')
+#!/usr/bin/env ruby
+
+file_data = File.readlines(File.expand_path('./input.txt', __dir__))
 
 data_array = file_data.map {|n| n.to_i }
 

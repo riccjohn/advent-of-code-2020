@@ -1,6 +1,6 @@
-file = File.open('day_02/day_02_input.txt')
-file_data = file.read.split("\n")
-file.close
+#!/usr/bin/env ruby
+
+file_data = File.readlines(File.expand_path('./day_02_input.txt', __dir__))
 
 def parse_data(arr)
   arr.map do |p|
