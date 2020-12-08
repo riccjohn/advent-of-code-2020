@@ -20,22 +20,29 @@ end
 
 data = parse_data(file_data)
 
-def verify_password(password_data)
-  idx_a     = password_data[:idx_a]
-  idx_b     = password_data[:idx_b]
-  char      = password_data[:char]
-  password  = password_data[:password]
+results = {
+  :pass => 0,
+  :fail => 0,
+}
+
+data.each do |line|
+  idx_a     = line[:idx_a]
+  idx_b     = line[:idx_b]
+  char      = line[:char]
+  password  = line[:password]
 
   char_a = password[idx_a - 1]
   char_b = password[idx_b - 1]
 
-  pp password_data
-  pp char_a
-  pp char_b
+  chars = [char_a, char_b]
 
-  result = char_a == char || char_b == char
-  pp result
+  if (chars.select { |c| c == char}.length == 1)
+    results[:pass] += 1
+  else
+    results[:fail] += 1
+  end
 end
 
-pp data.select { |p| verify_password(p) }.length
+pp results
+pp results[:pass] + results[:fail] == data.length
 
